@@ -13,15 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VinylRecordsApplication_2.Pages.Manufacturer
+namespace VinylRecordsApplication_2.Pages.Manufacturer.Elements
 {
     /// <summary>
-    /// Логика взаимодействия для Main.xaml
+    /// Логика взаимодействия для Manufacturer.xaml
     /// </summary>
-    public partial class Main : Page
+    public partial class Manufacturer : UserControl
     {
-        public IEnumerable<Classes.Manufacturer> AllManufacturers = Classes.Manufacturer.AllManufacturers();
-        public Main()
+
+
+        public Manufacturer()
         {
             InitializeComponent();
         }
