@@ -4,9 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VinylRecordsApplication_2"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+                mc:Ignorable="d"
+        Title="Учёт поставок виниловых пластинок"
+        Height="450"
+        Width="800"
+        MinWidth="800"
+        MinHeight="450">
     <Grid>
-        
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem Header="Пластинки" Height="25">
+                <MenuItem Header="Список" Click="OpenRecordList"></MenuItem>
+                <MenuItem Header="Добавить" Click="OpenRecordAdd"></MenuItem>
+                <MenuItem Header="Экспортировать" Click="ExportRecord"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Поставщики">
+                <MenuItem Header="Список" Click="OpenManufacruersList"></MenuItem>
+                <MenuItem Header="Добавить" Click="OpenManufacruersAdd"></MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Поставки">
+                <MenuItem Header="Список" Click="OpenSupplyList"></MenuItem>
+                <MenuItem Header="Добавить" Click="OpenSupplyAdd"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Состояния">
+                <MenuItem Header="Список" Click="OpenStateList"/>
+                <MenuItem Header="Добавить" Click="OpenStateAdd"/>
+            </MenuItem>
+        </Menu>
+
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden" Margin="0,25,0,0"/>
     </Grid>
 </Window>
