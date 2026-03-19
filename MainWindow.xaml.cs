@@ -20,9 +20,57 @@ namespace VinylRecordsApplication_2
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void OpenPages(Page page) => frame.Navigate(page);
+
+        private void OpenRecordList(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenRecordAdd(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExportRecord(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenManufacruersList(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenManufacruersAdd(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenSupplyList(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenSupplyAdd(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenStateList(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenStateAdd(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
