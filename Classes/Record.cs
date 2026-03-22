@@ -17,7 +17,7 @@ namespace VinylRecordsApplication_2.Classes
         public int Format { get; set; }
         public int Size { get; set; }
         public int IdManufacturer { get; set; }
-        public float price { get; set; }
+        public float Price { get; set; }
         public int IdState { get; set; }
         public string Description { get; set; }
 
@@ -31,11 +31,11 @@ namespace VinylRecordsApplication_2.Classes
                 {
                     Id = Convert.ToInt32(row[0]),
                     Name = Convert.ToString(row[1]),
-                    year = Convert.ToInt32(row[2]),
+                    Year = Convert.ToInt32(row[2]),
                     Format = Convert.ToInt32(row[3]),
                     Size = Convert.ToInt32(row[4]),
                     IdManufacturer = Convert.ToInt32(row[5]),
-                    price = float.Parse(row[6].ToString()),
+                    Price = float.Parse(row[6].ToString()),
                     IdState = Convert.ToInt32(row[7]),
                     Description = Convert.ToString(row[8]),
                 });
@@ -46,7 +46,7 @@ namespace VinylRecordsApplication_2.Classes
 
         public void Save(bool Update = false)
         {
-            string CorrectPrice = this.price.ToString().Replace(",", ".");
+            string CorrectPrice = this.Price.ToString().Replace(",", ".");
             if (Update == false)
             {
                 Classes.DBConnection.Connection($"INSERT INTO [dbo].[Record] ([Name], [Year], [Format], [Size], [IdManufacturer], [Price], [IdState], [Description]) VALUES('{this.Name}', {this.Year}, {this.Format}, {this.Size}, {this.IdManufacturer}, {CorrectPrice}, {this.IdState}, '{this.Description}')");
