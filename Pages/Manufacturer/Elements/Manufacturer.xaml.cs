@@ -37,11 +37,11 @@ namespace VinylRecordsApplication_2.Pages.Manufacturer.Elements
 
         private void EditManufacturer(object sender, RoutedEventArgs e) => MainWindow.mainWindow.OpenPage(new Pages.Manufacturer.Add(this.manufacturer));
 
-        private void Deletemanufacturer(object sender, RoutedEventArgs e)
+        private void DeleteManufacturer(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show($"Удалить поставщика: {this.manufacturer.Name}?", "Уведомление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                if (Classes.Record.AllRecord().Where(x => x.IdManufacturer == manufacturer.Id).Count() > 0)
+                if (Classes.Record.AllRecords().Where(x => x.IdManufacturer == manufacturer.Id).Count() > 0)
                     MessageBox.Show($"Поставщик {this.manufacturer.Name} невозможно удалить. Для начала удалите зависимости.", "Уведомление");
                 else
                 {

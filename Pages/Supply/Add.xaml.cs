@@ -85,6 +85,8 @@ namespace VinylRecordsApplication_2.Pages.Supply
                         changeSupply.Save(true);
                         MessageBox.Show($"Поставка №{changeSupply.Id} успешно изменена.", "Уведомление");
                     }
+
+                    MainWindow.mainWindow.OpenPage(new Pages.Supply.Main());
                 }
                 else
                     MessageBox.Show("Пожалуйста, укажите количество поставки.", "Предупреждение");

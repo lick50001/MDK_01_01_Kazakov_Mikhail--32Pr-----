@@ -95,6 +95,8 @@ namespace VinylRecordsApplication_2.Pages.Records
                                 changeRecord.Save(true);
                                 MessageBox.Show($"Пластинка {changeRecord.Name} успешно изменена.", "Уведомление");
                             }
+
+                            MainWindow.mainWindow.OpenPage(new Pages.Records.Main());
                         }
                         else
                             MessageBox.Show("Наименование пластинки слишком большое.", "Предупреждение");

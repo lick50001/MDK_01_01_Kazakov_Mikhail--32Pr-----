@@ -22,11 +22,11 @@ namespace VinylRecordsApplication_2.Classes
             foreach (DataRow row in recordQuery.Rows)
                 manufacturers.Add(new Manufacturer()
                 {
-                    Id = Convert.ToInt32(row["0"]),
-                    Name = Convert.ToString(row["1"]),
-                    CountryCode = Convert.ToInt32(row["2"]),
-                    Phone = Convert.ToString(row["3"]),
-                    Mail = Convert.ToString(row["4"]),
+                    Id = Convert.ToInt32(row[0]),
+                    Name = Convert.ToString(row[1]),
+                    CountryCode = Convert.ToInt32(row[2]),
+                    Phone = Convert.ToString(row[3]),
+                    Mail = Convert.ToString(row[4]),
                 });
             return manufacturers;
         }
@@ -35,13 +35,13 @@ namespace VinylRecordsApplication_2.Classes
         {
             if (Update == false)
             {
-                Classes.DBConnection.Connection($"INSERT INTO [dbo].[Manufacturer]([Name], [CountryCode], [Phone], [Mail]) VALUES ('{this.Name}', {this.CountryCode}, '{this.Phone}', '{this.Mail}')");
+                Classes.DBConnection.Connection($"INSERT INTO [dbo].[Manufacturer]([Name], [CountryCode], [Phone], [Mail]) VALUES (N'{this.Name}', {this.CountryCode}, N'{this.Phone}', N'{this.Mail}')");
 
                 this.Id = Manufacturer.AllManufacturers().Where(x => x.Name == this.Name && x.CountryCode == this.CountryCode && this.Phone == this.Phone && this.Mail == this.Mail).First().Id;
             }
             else
             {
-                Classes.DBConnection.Connection($"UPDATE [dbo].[Manufacturer] SET [Name] = '{this.Name}', [CountryCode] = {this.CountryCode}, [Phone] = '{this.Phone}', [Mail] = '{this.Mail}' WHERE [Id] = {this.Id}");
+                Classes.DBConnection.Connection($"UPDATE [dbo].[Manufacturer] SET [Name] = N'{this.Name}', [CountryCode] = {this.CountryCode}, [Phone] = N'{this.Phone}', [Mail] = N'{this.Mail}' WHERE [Id] = {this.Id}");
             }
         }
 

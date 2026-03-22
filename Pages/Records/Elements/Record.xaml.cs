@@ -59,7 +59,7 @@ namespace VinylRecordsApplication_2.Pages.Records.Elements
         {
             if (MessageBox.Show($"Удалить виниловую пластинку: {this.record.Name}?", "Уведомление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                IEnumerable<Classes.Supply> AllSupply = Classes.Supply.AllSupplies();
+                IEnumerable<Classes.Supply> AllSupply = Classes.Supply.AllSupples();
                 if (AllSupply.Where(x => x.IdRecord == record.Id).Count() > 0)
                 {
                     MessageBox.Show($"Виниловую пластинку {this.record.Name} невозможно удалить. Для начала удалите зависимости.", "Уведомление");

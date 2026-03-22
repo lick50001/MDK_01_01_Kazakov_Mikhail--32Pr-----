@@ -19,7 +19,7 @@ namespace VinylRecordsApplication_2.Classes
             {
                 countries.Add(new Country()
                 {
-                    Id = Convert.ToInt32(row["0"]),
+                    Id = Convert.ToInt32(row[0]),
                     Name = row[1].ToString(),
                 });
             }

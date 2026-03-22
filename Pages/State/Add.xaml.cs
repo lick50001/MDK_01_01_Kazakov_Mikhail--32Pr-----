@@ -64,6 +64,8 @@ namespace VinylRecordsApplication_2.Pages.State
 
                         MessageBox.Show($"Состояние {changeState.Name} успешно изменено.", "Уведомление");
                     }
+
+                    MainWindow.mainWindow.OpenPage(new Pages.State.Main());
                 }
                 else
                     MessageBox.Show("Пожалуйста, укажите сокращенное наименование состояния.", "Предупреждение");

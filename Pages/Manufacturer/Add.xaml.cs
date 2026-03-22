@@ -44,9 +44,9 @@ namespace VinylRecordsApplication_2.Pages.Manufacturer
 
         private void AddManufacturer(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrEmpty(tbName.Text))
-                if (!String.IsNullOrEmpty(tbPhone.Text))
-                    if (String.IsNullOrEmpty(tbEmail.Text))
+            if (!String.IsNullOrWhiteSpace(tbName.Text))
+                if (!String.IsNullOrWhiteSpace(tbPhone.Text))
+                    if (!String.IsNullOrWhiteSpace(tbEmail.Text))
                         if (CorrectPhone(tbPhone.Text))
                             if (CorrectEmail(tbEmail.Text))
                             {
@@ -73,6 +73,8 @@ namespace VinylRecordsApplication_2.Pages.Manufacturer
                                     changeManufacturer.Save(true);
                                     MessageBox.Show($"Поставщик {changeManufacturer.Name} успешно изменен.", "Увдеомление");
                                 }
+
+                                MainWindow.mainWindow.OpenPage(new Pages.Manufacturer.Main());
                             } else
                                 MessageBox.Show($"Пожалуйста, укажите почту поставщика в формате xx@xx.xx.", "Предупреждение");
                         else

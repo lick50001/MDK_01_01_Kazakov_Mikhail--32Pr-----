@@ -22,7 +22,7 @@ namespace VinylRecordsApplication_2.Classes
             {
                 allState.Add(new State()
                 {
-                    Id = Convert.ToInt32(state["0"]),
+                    Id = Convert.ToInt32(state[0]),
                     Name = state[1].ToString(),
                     SubName = state[2].ToString(),
                     Description = state[3].ToString()
@@ -37,12 +37,17 @@ namespace VinylRecordsApplication_2.Classes
             if (Update == false)
             {
                 Classes.DBConnection.Connection(
-                    $"INSERT INTO [dbo].[State]([Name], [SubName], [Desriptoin]) VALUES ('{this.Name}', '{this.SubName}', '{this.Description}');");
-                this.Id = AllState().Where(x => x.Name == this.Name && x.SubName == this.SubName && x.Description == this.Description).First().Id;
+                    $"INSERT INTO [dbo].[State] ([Name], [Subname], [Description]) " +
+                    $"VALUES(N'{this.Name}', N'{this.SubName}', N'{this.Description}')");
             }
             else
             {
-                Classes.DBConnection.Connection($"UPDATE [dbo].[State] SET [Name] = {this.Name}, [SubName] = {this.SubName}, [Description] = {this.Description} WHERE [Id] = {this.Id};");
+                Classes.DBConnection.Connection(
+                    $"UPDATE [dbo].[State] SET " +
+                    $"[Name] = N'{this.Name}', " +
+                    $"[Subname] = N'{this.SubName}', " +
+                    $"[Description] = N'{this.Description}' " +
+                    $"WHERE [Id] = {this.Id}");
             }
         }
 
